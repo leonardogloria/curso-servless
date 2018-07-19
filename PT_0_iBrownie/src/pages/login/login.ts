@@ -2,6 +2,7 @@ import {Component} from "@angular/core";
 import {NavController, AlertController, ToastController, MenuController} from "ionic-angular";
 import {HomePage} from "../home/home";
 import {RegisterPage} from "../register/register";
+import { ChangePassPage }  from '../change-pass/change-pass';
 import { ListBrowniePage } from '../list-brownie/list-brownie';
 import { UserService } from '../../services/user-service';
 import { Storage } from '@ionic/storage';
@@ -29,8 +30,31 @@ export class LoginPage {
   login() {
     this.userService.user.name = "Leonardo Gloria"
     this.storage.set('userName', this.userName )
-    console.log(this.userName)
-    this.nav.setRoot(ListBrowniePage);
+    if(this.userName === 'leonardo'){
+      this.nav.setRoot(ListBrowniePage);
+      
+    }else {
+      if(this.userName === 'leo'){
+        const alert = this.forgotCtrl.create({
+          title: 'Troque sua senha',
+          subTitle: 'Por favor troque sua senha!!',
+          buttons: ['OK']
+        });    
+        alert.present();
+    
+        this.nav.push(ChangePassPage)
+      } else {
+        const alert = this.forgotCtrl.create({
+          title: 'Usuário Inválido',
+          subTitle: 'Verifique suas credencias!!',
+          buttons: ['OK']
+        });    
+        alert.present();
+      }
+    }
+   
+
+    
   }
 
   forgotPass() {

@@ -36,6 +36,7 @@ import { ConfirmationRegisterPage } from '../pages/confirmation-register/confirm
 import { ListBrowniePage } from '../pages/list-brownie/list-brownie';
 import { BrownieDetailPage } from '../pages/brownie-detail/brownie-detail';
 import { OrderListPage } from '../pages/order-list/order-list';
+import { ChangePassPage } from '../pages/change-pass/change-pass';
 // end import pages
 
 @NgModule({
@@ -54,7 +55,8 @@ import { OrderListPage } from '../pages/order-list/order-list';
     ConfirmationRegisterPage,
     ListBrowniePage,
     BrownieDetailPage,
-    OrderListPage
+    OrderListPage,
+    ChangePassPage
   ],
   imports: [
     BrowserModule,
@@ -85,7 +87,8 @@ import { OrderListPage } from '../pages/order-list/order-list';
     ConfirmationRegisterPage,
     ListBrowniePage,
     BrownieDetailPage,
-    OrderListPage
+    OrderListPage,
+    ChangePassPage
 
   ],
   providers: [
