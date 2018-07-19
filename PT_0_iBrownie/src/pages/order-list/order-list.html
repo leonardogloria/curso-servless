@@ -1,0 +1,24 @@
+<!-- -->
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+      <ion-title>
+        <span ion-text>Meus Pedidos</span>
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  
+  
+  <ion-content padding class="trips detail-bg">
+      <ion-list>
+          <button ion-item *ngFor="let order of orders" >
+             {{order.date}} ({{order.status}})
+          </button>  
+         
+        </ion-list>   
+  </ion-content>
+  

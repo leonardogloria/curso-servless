@@ -1,0 +1,94 @@
+{
+  "orders": [
+    {
+      "id": 1,
+      "date": "27/06/2018",
+      "status": "Entregue",
+      "clienteId": "1"
+    },
+    {
+      "id": 2,
+      "date": "26/06/2018",
+      "status": "Entregue",
+      "clienteId": "3"
+    },
+    {
+      "date": "2018-07-12",
+      "quantidade": 3,
+      "brownieId": 1,
+      "status": "Recebido",
+      "id": 3,
+      "clienteId": "1"
+    },
+    {
+      "data": "2018-07-12",
+      "status": "Recebido",
+      "quantidade": 3,
+      "brownieId": 2,
+      "clientId": "1",
+      "id": 4
+    },
+    {
+      "data": "2018-07-12T20:48:09.702Z",
+      "status": "Recebido",
+      "quantidade": 3,
+      "brownieId": 2,
+      "clientId": "1",
+      "id": 5
+    }
+  ],
+  "brownies": [
+    {
+      "id": 1,
+      "name": "Brownie Tradicional",
+      "price": 5,
+      "thumb": "assets/img/brownie/brownies.jpg",
+      "short_description": "Delicioso Brownie Tradicional",
+      "images": [
+        "assets/img/brownie/brownies.jpg",
+        "assets/img/trip/thumb/trip_6.jpg",
+        "assets/img/trip/thumb/trip_7.jpg",
+        "assets/img/trip/thumb/trip_8.jpg"
+      ],
+      "highlights": [
+        "Chocolate de qualidade",
+        "Feito em forno a lenha",
+        "Embalagem enconômica"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Brownie com Doce de Leite",
+      "price": 7,
+      "thumb": "assets/img/brownie/brownie-doce-de-leite.jpg",
+      "images": [
+        "assets/img/trip/thumb/trip_5.jpg",
+        "assets/img/trip/thumb/trip_6.jpg",
+        "assets/img/trip/thumb/trip_7.jpg",
+        "assets/img/trip/thumb/trip_8.jpg"
+      ],
+      "highlights": [
+        "Doce de Leite de vacas veganas",
+        "Forno ultra-sônico",
+        "Embalagem enconômica"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Brownie com Nozes",
+      "price": 8,
+      "thumb": "assets/img/brownie/brownie_nozes.jpg",
+      "images": [
+        "assets/img/trip/thumb/trip_5.jpg",
+        "assets/img/trip/thumb/trip_6.jpg",
+        "assets/img/trip/thumb/trip_7.jpg",
+        "assets/img/trip/thumb/trip_8.jpg"
+      ],
+      "highlights": [
+        "Nozes do norte da Moldávia",
+        "Forno ultra-sônico",
+        "Embalagem enconômica"
+      ]
+    }
+  ]
+}
