@@ -43,14 +43,6 @@
       "brownieId": 2,
       "clientId": "teste",
       "id": 6
-    },
-    {
-      "data": "2018-07-20T15:34:33.116Z",
-      "status": "Recebido",
-      "quantidade": 3,
-      "brownieId": 1,
-      "clientId": "leonardo",
-      "id": 7
     }
   ],
   "brownies": [

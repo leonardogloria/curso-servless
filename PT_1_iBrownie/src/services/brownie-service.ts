@@ -12,15 +12,8 @@ export class BrownieService {
         
     }
     getAll(){
-        let headers = new Headers({  "Access-Control-Allow-Origin": "*"});
-        let header = new HttpHeaders();
-        const httpOptions = {
-            headers: new HttpHeaders({ 
-              'Access-Control-Allow-Origin':'*',
-            
-            })
-          };
-            return this.http.get('https://qubll2xhi6.execute-api.us-east-1.amazonaws.com/production/produtos',httpOptions);
+      
+            return this.http.get('http://localhost:3000/brownies');
             
      
     }

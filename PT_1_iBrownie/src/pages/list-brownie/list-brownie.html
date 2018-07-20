@@ -1,0 +1,33 @@
+<!-- -->
+<ion-header>
+  <ion-navbar color="primary">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>
+      <span ion-text>Brownies</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+
+<ion-content padding class="trips detail-bg">
+  <!--list of trips-->
+  <div class="trip card" *ngFor="let brownie of brownies" tappable (click)="viewDetail(brownie.id)" margin-bottom>
+    <div class="background border-bottom" [ngStyle]="{'background-image': 'url(' + brownie.thumb + ')'}">
+      <div class="background-filter rlt">
+        <div class="align-bottom" padding-left padding-right>
+          <h6 class="pull-left text-white" ion-text> {{ brownie.name }}</h6>
+          <h6 class="pull-right text-white" ion-text>R$ {{ brownie.price }}</h6>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+    <div class="padding-sm primary-bg">
+      <span ion-text class="text-white">Delicioso brownie</span>
+      <!--  <span class="pull-right" ion-text color="light"><strong>per adult</strong> (childs has <span ion-text  class="text-green bold">50% OFF</span>)</span>-->
+    </div>
+  </div>
+</ion-content>
