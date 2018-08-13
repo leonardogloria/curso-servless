@@ -1,0 +1,68 @@
+<!--
+  Generated template for the BrownieDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- -->
+<ion-header>
+
+    <ion-navbar  color="primary">
+      <ion-title>
+        <span ion-text>{{brownie.name}}</span>
+      </ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+
+
+  <ion-content class="common-bg">
+      <!--slides-->
+      <ion-slides class="to-top" pager>
+        <ion-slide *ngFor="let image of brownie.images">
+          <img [src]="image" alt="">
+        </ion-slide>
+      </ion-slides>
+  <!--high light-->
+  <div class="border-bottom" padding>
+      <span ion-text color="dark" class="bold">Vantagens</span>
+      <ul class="highlight">
+        <li *ngFor="let highlight of brownie.highlights">
+          <ion-icon name="checkmark" class="text-green"></ion-icon>
+          <span ion-text color="primary">{{ highlight }}</span>
+        </li>
+      </ul>
+    </div>
+
+      <!--booking form-->
+  <div class="booking-form card round" margin>
+      <div class="border-bottom" padding>
+        <h5>{{ brownie.name }}</h5>
+  
+        <!--choose guest-->
+        <ion-grid class="filters" no-padding margin-top>
+          <ion-row>
+            <ion-col class="adult" width-70>
+              <span ion-text color="primary"><strong>{{ brownie.price | currency:'USD':true }}</strong></span>
+            </ion-col>
+            <ion-col width-10 text-center>
+              <ion-icon name="remove-circle" class="text-2x" tappable (click)="minus()" [hidden]="qtd < 2"
+                        color="secondary"></ion-icon>
+            </ion-col>
+            <ion-col width-10 text-center>{{ qtd }}</ion-col>
+            <ion-col width-10 text-center>
+              <ion-icon name="add-circle" class="text-2x" tappable (click)="plus()" color="secondary"></ion-icon>
+            </ion-col>
+          </ion-row>
+
+        </ion-grid>
+      </div>
+      <div padding class="form-bottom">
+  <!--       <span ion-text color="dark" class="bold">{{ adults }} Adults</span> -->
+        <!--booking button-->
+        <button ion-button class="pull-right" color="secondary" tappable (click)="checkout()">Comprar {{ qtd * brownie.price
+            | currency:'USD':true }}
+        </button>
+        <div class="clear"></div>
+      </div>
+    </div>

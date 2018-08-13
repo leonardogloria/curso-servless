@@ -1,0 +1,58 @@
+<!-- -->
+<ion-content padding class="animated fadeIn login auth-page">
+  <div class="login-content">
+
+    <!-- Logo --> 
+    
+    <div class="alert alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>Troque sua senha!</strong>
+    </div>
+    
+    <!-- Login form -->
+    <form class="list-form">
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+          Email
+        </ion-label>
+        <ion-input   [(ngModel)]="userName" name="userName" type="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+          Senha Antiga
+        </ion-label>
+        <ion-input [(ngModel)]="password" name="password" type="password"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+          Nova Senha
+        </ion-label>
+        <ion-input [(ngModel)]="newPassword" name="password" type="password"></ion-input>
+      </ion-item>
+    </form>
+    <p text-right ion-text color="secondary" tappable ><strong></strong></p>
+
+    <div>
+      <button ion-button icon-start block color="dark" tappable (click)="changePass()">
+        <ion-icon name="log-in"></ion-icon>
+        Trocar a senha
+      </button>
+
+
+     
+
+    </div>
+
+
+    <!-- Other links -->
+    <div text-center margin-top>
+      <span ion-text color="secondary" tappable (click)="register()">Novo aqui? <strong>Criar conta!</strong></span>
+    </div>
+
+  </div>
+</ion-content>
