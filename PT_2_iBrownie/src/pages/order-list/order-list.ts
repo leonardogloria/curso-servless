@@ -23,7 +23,7 @@ export class OrderListPage {
 
   ionViewDidLoad() {
     this.orderService.getAll().subscribe(data =>{
-      this.orders = data;
+      this.orders = data['Items'];
       console.log(data)
     })
   

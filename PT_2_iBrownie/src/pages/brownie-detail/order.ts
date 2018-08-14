@@ -3,6 +3,8 @@ export class Order {
     quantidade: number;
     brownieId: number;
     clientId: number;
-    status = "Recebido"
+    status = "RECEBIDO";
+    uuid = "123dasdas";
+    usuario:string;
 
 }

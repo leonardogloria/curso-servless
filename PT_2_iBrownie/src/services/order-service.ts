@@ -11,7 +11,8 @@ export class OrderService {
         
     }
     getAll(){
-             return this.http.get('http://localhost:3000/orders/?clienteId=1')  
+             const serverUrl = 'https://smqrcs23si.execute-api.us-east-1.amazonaws.com/dev/pedido/123'
+             return this.http.get(serverUrl)  
     }
     getOrder(id){
         for (var i = 0; i < this.orders.length; i++) {
@@ -22,6 +23,6 @@ export class OrderService {
           return null;
     }
     checkout(order: Order){
-        return this.http.post('http://localhost:3000/orders', order);
+        return this.http.post('https://smqrcs23si.execute-api.us-east-1.amazonaws.com/dev/pedido/', order);
     }
 }

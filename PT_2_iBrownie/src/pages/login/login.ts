@@ -1,5 +1,8 @@
 import {Component} from "@angular/core";
 import {NavController, AlertController, ToastController, MenuController} from "ionic-angular";
+import {CognitoCallback, LoggedInCallback} from "../../services/cognito.service";
+import {UserLoginService} from "../../services/userLogin.service";
+
 import {HomePage} from "../home/home";
 import {RegisterPage} from "../register/register";
 import { ChangePassPage }  from '../change-pass/change-pass';
@@ -11,12 +14,14 @@ import { Storage } from '@ionic/storage';
   selector: 'page-login',
   templateUrl: 'login.html'
 })
-export class LoginPage {
+export class LoginPage implements CognitoCallback {
   userName: string;
-  passWord: string;
+  password: string;
 
-  constructor(public nav: NavController, public forgotCtrl: AlertController, public menu: MenuController, public toastCtrl: ToastController, 
+  constructor(public nav: NavController, public forgotCtrl: AlertController,public userLoginService: UserLoginService 
+    ,public menu: MenuController, public toastCtrl: ToastController, 
  public userService: UserService,
+ public alertCtrl: AlertController,
  public storage: Storage) {
     this.menu.swipeEnable(false);
   }
@@ -30,30 +35,7 @@ export class LoginPage {
   login() {
     this.userService.user.name = "Leonardo Gloria"
     this.storage.set('userName', this.userName )
-    if(this.userName === 'leonardo'){
-      this.nav.setRoot(ListBrowniePage);
-      
-    }else {
-      if(this.userName === 'leo'){
-        const alert = this.forgotCtrl.create({
-          title: 'Troque sua senha',
-          subTitle: 'Por favor troque sua senha!!',
-          buttons: ['OK']
-        });    
-        alert.present();
-    
-        this.nav.push(ChangePassPage)
-      } else {
-        const alert = this.forgotCtrl.create({
-          title: 'Usuário Inválido',
-          subTitle: 'Verifique suas credencias!!',
-          buttons: ['OK']
-        });    
-        alert.present();
-      }
-    }
-   
-
+    this.userLoginService.authenticate(this.userName, this.password, this)
     
   }
 
@@ -94,5 +76,27 @@ export class LoginPage {
     });
     forgot.present();
   }
+  cognitoCallback(message: string, result: any) {
+    if (message != null) { //error
+        if(message == 'User does not exist.'){
+          this.doAlert("Error", 'Usuário não existe')
+        }else if(message == 'Incorrect username or password.'){
+          this.doAlert("Error", 'Usuário ou senha inválidos')
+        }
+        console.log("result: " + message);
+    } else { //success
+        console.log("Redirect to ControlPanelComponent");
+        this.nav.setRoot(ListBrowniePage);
+    }
+  }
+  doAlert(title: string, message: string) {
+
+    let alert = this.alertCtrl.create({
+        title: title,
+        subTitle: message,
+        buttons: ['OK']
+    });
+    alert.present();
+}
 
 }

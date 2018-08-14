@@ -23,7 +23,7 @@ export class ListBrowniePage {
 
   ionViewDidLoad() {
      this.brownieService.getAll().subscribe(res =>{
-       this.brownies = res
+       this.brownies = res['Items']
    });
   }
 

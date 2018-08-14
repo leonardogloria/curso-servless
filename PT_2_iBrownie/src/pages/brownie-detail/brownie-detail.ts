@@ -38,6 +38,7 @@ export class BrownieDetailPage {
       order.quantidade = this.qtd;
       order.brownieId = this.brownie.id;
       order.clientId = val;
+      order.usuario = '123'
       this.orderService.checkout(order).subscribe(data => {
         console.log(data)
       });

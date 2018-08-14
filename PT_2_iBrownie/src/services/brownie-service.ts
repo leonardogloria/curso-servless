@@ -12,10 +12,8 @@ export class BrownieService {
         
     }
     getAll(){
-      
-            return this.http.get('http://localhost:3000/brownies');
-            
-     
+            const serverUrl = 'https://smqrcs23si.execute-api.us-east-1.amazonaws.com/dev/'
+            return this.http.get(serverUrl + 'brownies');
     }
        
     

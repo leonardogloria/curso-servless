@@ -29,6 +29,9 @@ import {LocalWeatherPage} from "../pages/local-weather/local-weather";
 import { BrownieService } from '../services/brownie-service';
 import {UserService} from '../services/user-service';
 import { OrderService } from '../services/order-service';
+import { CognitoUtil } from '../services/cognito.service';
+import { UserRegistrationService } from '../services/userRegistration.service';
+import { UserLoginService } from '../services/userLogin.service';
 // end import services
 
 // import pages
@@ -100,7 +103,10 @@ import { ChangePassPage } from '../pages/change-pass/change-pass';
     WeatherProvider,
     BrownieService,
     UserService,
-    OrderService
+    OrderService,
+    CognitoUtil,
+    UserRegistrationService,
+    UserLoginService
   ]
 })
 
