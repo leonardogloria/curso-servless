@@ -4,7 +4,7 @@ export class Order {
     brownieId: number;
     clientId: number;
     status = "RECEBIDO";
-    uuid = "123dasdas";
+    uuid: string;
     usuario:string;
 
 }

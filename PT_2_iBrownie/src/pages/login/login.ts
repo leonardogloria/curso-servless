@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {NavController, AlertController, ToastController, MenuController} from "ionic-angular";
-import {CognitoCallback, LoggedInCallback} from "../../services/cognito.service";
+import {CognitoCallback, LoggedInCallback, CognitoUtil, Callback} from "../../services/cognito.service";
 import {UserLoginService} from "../../services/userLogin.service";
 
 import {HomePage} from "../home/home";
@@ -14,7 +14,7 @@ import { Storage } from '@ionic/storage';
   selector: 'page-login',
   templateUrl: 'login.html'
 })
-export class LoginPage implements CognitoCallback {
+export class LoginPage implements CognitoCallback, Callback {
   userName: string;
   password: string;
 
@@ -22,6 +22,7 @@ export class LoginPage implements CognitoCallback {
     ,public menu: MenuController, public toastCtrl: ToastController, 
  public userService: UserService,
  public alertCtrl: AlertController,
+ public cognitoUtil:CognitoUtil,
  public storage: Storage) {
     this.menu.swipeEnable(false);
   }
@@ -34,7 +35,7 @@ export class LoginPage implements CognitoCallback {
   // login and go to home page
   login() {
     this.userService.user.name = "Leonardo Gloria"
-    this.storage.set('userName', this.userName )
+    
     this.userLoginService.authenticate(this.userName, this.password, this)
     
   }
@@ -86,9 +87,16 @@ export class LoginPage implements CognitoCallback {
         console.log("result: " + message);
     } else { //success
         console.log("Redirect to ControlPanelComponent");
+        this.cognitoUtil.getIdToken(this);
         this.nav.setRoot(ListBrowniePage);
     }
   }
+  callbackWithParam(result: any) {
+    this.storage.remove('token');
+    this.storage.set('token', result )
+    console.log(result)
+  }
+  callback(){}
   doAlert(title: string, message: string) {
 
     let alert = this.alertCtrl.create({

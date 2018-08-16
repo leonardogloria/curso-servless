@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { OrderService } from '../../services/order-service';
+import { Storage } from '@ionic/storage';
+
 /**
  * Generated class for the OrderListPage page.
  *
@@ -17,15 +19,20 @@ export class OrderListPage {
   orders: any;
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
-    public orderService: OrderService) {
+    public orderService: OrderService,
+    public storage: Storage) {
     
   }
 
   ionViewDidLoad() {
-    this.orderService.getAll().subscribe(data =>{
+    this.storage.get('token').then((val) => {
+      console.log(val)
+    this.orderService.getAll(val).subscribe(data =>{
+      
       this.orders = data['Items'];
       console.log(data)
     })
+  })
   
   }
 }
